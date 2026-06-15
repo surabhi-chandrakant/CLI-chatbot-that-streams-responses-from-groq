@@ -1,0 +1,10 @@
+# Create render.yaml
+services:
+  - type: web
+    name: groq-chatbot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
